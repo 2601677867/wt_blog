@@ -294,8 +294,8 @@ article.md .highlight >table th {
   line-height: 1.5;
 }
 article.md .highlight >table::-webkit-scrollbar {
-  height: 4px;
-  width: 4px;
+  height: 0px;
+  width: 0px;
 }
 article.md .highlight >table::-webkit-scrollbar-track-piece {
   background: transparent;
@@ -3707,4 +3707,8 @@ div.swiper-slide img {
 .swiper-button-next:hover {
   background: #fff !important;
   --swiper-theme-color: #ff5722 !important;
+}
+.cmt-body.beaudar {
+  margin: 0 -4px;
+  width: calc(100% + 8px);
 }
