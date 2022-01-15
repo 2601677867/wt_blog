@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.0.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>PS1游戏汉化教程研究——STR视频文件 - 冬寂的日志薄</title>
+
+  
+    <meta name="description" content="前言此教程将会带你一步步修改PlayStaion 1游戏中的str视频文件并了解相关知识。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PS1游戏汉化教程研究——STR视频文件">
+<meta property="og:url" content="http://wintermuted.cn/2022/01/14/PS1%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E7%A0%94%E7%A9%B6%E2%80%94%E2%80%94STR%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="冬寂的日志薄">
+<meta property="og:description" content="前言此教程将会带你一步步修改PlayStaion 1游戏中的str视频文件并了解相关知识。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/LiOqxI7V1rACM8w.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/WoklFRhign3pI1X.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/FQeBVHtSImKUNlo.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/j2P1dxEfDeSbMcG.png">
+<meta property="og:image" content="https://s2.loli.net/2022/01/14/LlZEorUmsxR7S8z.png">
+<meta property="article:published_time" content="2022-01-14T08:01:05.000Z">
+<meta property="article:modified_time" content="2022-01-14T15:07:07.319Z">
+<meta property="article:author" content="WinterMuted 冬寂">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2022/01/14/LiOqxI7V1rACM8w.png">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+    <link rel="shortcut icon" href="https://s4.ax1x.com/2022/01/08/7iDIl4.jpg">
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://s4.ax1x.com/2022/01/08/7iDIl4.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">冬寂的日志薄</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">博客</a><a class="nav-item" href="/project/">项目</a><a class="nav-item" href="/collect/">游戏收藏</a><a class="nav-item" href="/about">关于</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E7%A1%AE%E6%8F%90%E5%8F%96%E6%96%87%E4%BB%B6"><span class="toc-text">正确提取文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%AB%E6%95%B4%E4%B8%8D%E6%89%AB%E5%8D%95%E5%8E%9F%E5%88%99"><span class="toc-text">扫整不扫单原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">导出注意事项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-text">工具</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/2601677867" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/></a><a class="social" href="https://open.spotify.com/user/2yv0jxwm66g7s7epatpx2g4r4?si=RRrEsLEPRq-cZ_CPGVdBZg&utm_source=copy-link" target="_blank" rel="external nofollow noopener noreferrer"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/></a></div></footer>
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/PlayStaion%E6%B1%89%E5%8C%96%E7%A0%94%E7%A9%B6/">PlayStaion汉化研究</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-01-14T08:01:05.000Z">2022-01-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>PS1游戏汉化教程研究——STR视频文件</span></h1>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>此教程将会带你一步步修改PlayStaion 1游戏中的str视频文件并了解相关知识。</p>
+<span id="more"></span>
+
+<p>我知道你不想听我分析str或者avi是如何让PSX的CPU编码并显示画面的，讲这些又要涉及到一大堆计算机图像学知识，yuv灰度图像rgb图像二进制巴拉巴拉的。</p>
+<p>我并不懂什么图像学知识，虽然我以后可能会涉及OpenCV领域，但那都是后话。我所有的教程都是”精讲”——这意味着我将跳过我枯燥乏味的太深奥的学术研究过程，只保留最精彩和你需要的部分。</p>
+<p>你能搜到这篇文章大概率是在尝试给PlayStaion上的游戏做汉化<psw>没有人会在2022年尝试将电影刻录进PSX播放</psw>且需要给游戏CG做字幕。</p>
+<p>那么这篇”笔记”性质的”教程”将会教你如何从游戏光盘内<mark class="tag-plugin mark" color="red">正确的</mark>导出至avi格式，通过现代剪辑软件编辑后再转回str。</p>
+<h1 id="认识PSX中的视频文件"><a href="#认识PSX中的视频文件" class="headerlink" title="认识PSX中的视频文件"></a>认识PSX中的视频文件</h1><p>PlayStaion 1的游戏CG普遍使用<kbd>.str</kbd>和<kbd>.mov</kbd>两种视频格式，也有些游戏使用自己自制的格式来压缩视频资源，但psx支持的解码器也就那几种，mpeg2与mpeg总有一个能搞定。有些游戏则会在现有的str和mov之上进行修改，例如《Final Fantasy VI 最终幻想6》</p>
+<p>FF6由于在str文件的基础上进行了一些修改，导致转码和再编辑非常困难。此教程只适用于标准str文件，如果你汉化的游戏使用了特殊规则，那只能另辟蹊径了！</p>
+<p>jPSXdec的作者m35曾对STR文件进行过深度的研究，或许这篇文章可以帮助你处理特殊STR：<a target="_blank" rel="noopener" href="https://github.com/m35/jpsxdec/blob/readme/jpsxdec/PlayStation1_STR_format.txt">The PlayStation 1 Video (STR) Format</a></p>
+<h1 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h1><h2 id="正确提取文件"><a href="#正确提取文件" class="headerlink" title="正确提取文件"></a>正确提取文件</h2><h3 id="扫整不扫单原则"><a href="#扫整不扫单原则" class="headerlink" title="扫整不扫单原则"></a>扫整不扫单原则</h3><p>在2022年，我们使用更现代化的工具<a target="_blank" rel="noopener" href="https://github.com/m35/jpsxdec">jPSXdec</a>来提取psx游戏文件</p>
+<p>虽然工具有点英文基础就能使用明白，但当我在提取资源时却犯了一个致命的错误。</p>
+<p>得力于现代解压缩软件，大部分都可以直接解压psx游戏最常见的两种格式——iso或bin文件。但这样是完全だめ的！直接解压缩整个光盘文件后再提取str会导致jpsxdec报错：</p>
+<div class="tag-plugin note" color="red" child="codeblock"><div class="body"><p>disc image does not contain raw header - audio may not be detected</p></div></div>
+<p>且会出现str文件丢失音频、扫描不到非bin格式压缩下的附加等各种各样的奇葩问题。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s2.loli.net/2022/01/14/LiOqxI7V1rACM8w.png" alt="直接扫描某个bin文件"/></div><div class="image-meta"><span class="image-caption center">直接扫描某个bin文件</span></div></div>
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s2.loli.net/2022/01/14/WoklFRhign3pI1X.png" alt="扫描光盘文件"/></div><div class="image-meta"><span class="image-caption center">扫描光盘文件</span></div></div>
+
+<p>事实证明jpsxdec可以扫描出来Tim Collection无法搜索到被压缩的贴图。</p>
+<h3 id="导出注意事项"><a href="#导出注意事项" class="headerlink" title="导出注意事项"></a>导出注意事项</h3><p>使用jpsxdec导出str时，jpd会自动整合xa与str。但需要注意的是导出选项需要选择AVI——Uncompressed RGB 否则后期mc32和movconv会报错</p>
+<p>至于解码质量，以最大视觉效果为优，选择Emulate PSX quality</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s2.loli.net/2022/01/14/FQeBVHtSImKUNlo.png"/></div></div>
+
+<p>关于导出选项，如果你有更好的组合或其他改进建议，请在评论区内comment</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://www.psxdev.net/help/psyq_install.html">Psy-Q SDK</a></li>
+</ul>
+<p>Psy-Q在我查阅资料后发现，这个SDK并非出自索尼，而是一个叫SN System的公司所开发。该公司从N64到GBC，为多个游戏机平台开发了拥有offical授权的Windows SDK</p>
+<p>该工具不适用于现代操作系统，仅适用于Windows 3.1/95/98 <psw>真的会有人拿Windows3.1这东西去开发psx游戏吗？我觉得它日常使用都费劲</psw></p>
+<p>为什么不用索尼官方Sony Development Tools Collection ？因为网上大部分大佬写的psx程序都是用psy-q写的</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.psxdev.net/forum/viewtopic.php?f=69&t=957">MC32/MovConv</a></li>
+</ul>
+<p>实际上MovConv和PSY-Q下的mc32经我测试都是一个东西，如果你的avi格式符合要求，任意一个工具都可以转换成功。</p>
+<p>如果上面的mc32最新版不适合你，你可以使用<a target="_blank" rel="noopener" href="https://winningeleven-games.com/showthread.php?tid=8612">movconv</a></p>
+<p>movconv仅在Windows 3.1/95/98上可用！</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.psxdev.net/forum/viewtopic.php?f=64&t=507&p=3645#p3645">strplay</a></li>
+</ul>
+<p>一个简单的ps1播放器程序，可以将你生成后的文件拖进iso里测试下游戏外是否可以正常播放。</p>
+<p>代码简单到我这个c白痴都能看懂，只需要修改strtest.c即可</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://winworldpc.com/download/3dc3943c-c386-18c3-9a11-c3a4e284a2ef">Windows 98 Vmware</a></li>
+</ul>
+<p>宁不可能自己去先造台符合Windows 98规格硬件的PC，或者将自己的主力机改成98。</p>
+<p>使用虚拟机是最棒的选择，VMware对98兼容很好，但95的体验就很拉。</p>
+<ul>
+<li>FFmpeg 与 格式工厂</li>
+</ul>
+<p>自己去百度搜</p>
+<ul>
+<li>VirtualDub</li>
+</ul>
+<p>上古年代的视频处理软件，好就好在只能处理avi，稍后我会介绍为什么需要它。</p>
+<h1 id="视频互转——STR"><a href="#视频互转——STR" class="headerlink" title="视频互转——STR"></a>视频互转——STR</h1><p>转出来容易转回去难，mc32和movconv对avi格式要求非常严格，有一项不符合工具也会报错。</p>
+<p>大概陆陆续续尝试转换了一个多星期均失败后，施科昱大佬一封邮件点醒了我。</p>
+<p>首先必须确保avi文件为Uncompressed RGB，也就是未压缩RGB格式，对于纯修改从jpsxdec提取的avi来说基本不用执行什么转换操作。</p>
+<p>但如果是在现代操作系统上自制的avi文件或翻译后格式编码遭到修改，那么你需要进行转换处理。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg <span class="literal">-i</span> &lt;infile&gt; <span class="literal">-vcodec</span> rawvideo <span class="literal">-s</span> <span class="number">320</span>x240 <span class="literal">-r</span> <span class="number">30</span> <span class="literal">-an</span> &lt;outfile&gt;</span><br></pre></td></tr></table></figure>
+<p>psx那可怜的芯片最多支持320x240分辨率的视频，最大fps为30fps，如果是从jpsxdec导出的默认15就好。</p>
+<p>如果转换后mc32会变得不认识此avi文件，解决办法便是使用VirtualDub将ffmpeg转换后的avi再导出一遍。</p>
+<p>文件———另存为旧版AVI文件(<kbd>Shift</kbd> + <kbd>T</kbd>)</p>
+<p>这样mc32和movconv便可顺利识别avi文件了。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s2.loli.net/2022/01/14/j2P1dxEfDeSbMcG.png" alt="一个多星期的研究成果"/></div><div class="image-meta"><span class="image-caption center">一个多星期的研究成果</span></div></div>
+
+<p>不确定是何种原因造成这个现象，起初我认为是这段ffmepg命令有问题，但在discord上许多人成功转换了文件，同时也没有任何document来解析VirtualDub中另存为旧版AVI的”旧版”到底旧了什么。</p>
+<p>我没有尝试转换过其他游戏的cg，或许只有《生化危机:枪下游魂》有这个问题。如果你汉化的游戏也遇到了这种情况，不妨再转换下试试。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s2.loli.net/2022/01/14/LlZEorUmsxR7S8z.png" alt="在简易播放器中完美播放"/></div><div class="image-meta"><span class="image-caption center">在简易播放器中完美播放</span></div></div>
+
+<h1 id="音频互转——XA"><a href="#音频互转——XA" class="headerlink" title="音频互转——XA"></a>音频互转——XA</h1><p>未完</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://wintermuted.cn/2022/01/14/PS1%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E7%A0%94%E7%A9%B6%E2%80%94%E2%80%94STR%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6/" /></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/b32ef3da1162a.svg"/></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://wintermuted.cn/2022/01/14/PS1%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E7%A0%94%E7%A9%B6%E2%80%94%E2%80%94STR%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6/&title=PS1游戏汉化教程研究——STR视频文件 - 冬寂的日志薄&summary=前言此教程将会带你一步步修改PlayStaion 1游戏中的str视频文件并了解相关知识。"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/80c07e4dbb303.svg"/></a><a class="social share-item email" href="mailto:?subject=PS1游戏汉化教程研究——STR视频文件 - 冬寂的日志薄&amp;body=http://wintermuted.cn/2022/01/14/PS1%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E7%A0%94%E7%A9%B6%E2%80%94%E2%80%94STR%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6/"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/a1b00e20f425d.svg"/></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/8411ed322ced6.svg"/></a></div><div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://wintermuted.cn/2022/01/14/PS1%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E6%95%99%E7%A8%8B%E7%A0%94%E7%A9%B6%E2%80%94%E2%80%94STR%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6/index.html"/></div></div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/2022/01/09/%E3%80%8A%E6%88%98%E5%9C%B0%E9%A3%8E%E4%BA%912%E3%80%8B%E4%B8%8E%E5%86%AC%E5%AF%82%E7%9A%84%E6%95%85%E4%BA%8B/">《战地风云2》与冬寂<span class="note">较早</span></a><div class="line"></div></section></div>
+
+
+<div class="related-wrap reveal" id="related-posts"></div>
+
+
+
+  <div class='related-wrap md reveal' id="comments">
+    <div class='cmt-title cap theme'>
+      快来参与讨论吧
+    </div>
+    <div class='cmt-body beaudar'>
+      
+
+<svg class="loading" style="vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="beaudar" repo="2601677867/wintermuted_comment" issue-term="pathname" theme="preferred-color-scheme" input-position="top" comment-order="desc" loading="false" branch="main"></div>
+
+    </div>
+  </div>
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/blog/categories/">分类</a><a href="/blog/archives/">归档</a></div><div class="sitemap-group"><span class="fs14">项目</span><a href="/wiki/tags/%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96/">汉化作品</a><a href="/wiki/tags/%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/">开源工具</a></div><div class="sitemap-group"><span class="fs14">友情链接</span><a target="_blank" rel="noopener" href="https://remember11.com">Remember 11解密篇</a></div><div class="sitemap-group"><span class="fs14">更多</span><a href="/about/">关于冬寂</a></div></div><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://wintermuted.cn/">@WinterMuted 冬寂</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1" title="v1.6.1">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.6.1';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+  <script>
+  function loadBeaudar() {
+    const els = document.querySelectorAll("#comments #beaudar");
+    if (els.length === 0) return;
+    els.forEach((el, i) => {
+      try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.log(error);
+      }
+      var script = document.createElement('script');
+      script.src = 'https://beaudar.lipk.org/client.js';
+      script.async = true;
+      for (let key of Object.keys(el.attributes)) {
+        let attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', (event) => {
+      loadBeaudar();
+  });
+</script>
+
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
