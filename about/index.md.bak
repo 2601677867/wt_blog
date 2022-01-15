@@ -1,0 +1,57 @@
+---
+robots: 'index,nofollow'
+menu_id: more
+seo_title: 关于冬寂
+sidebar: [welcome, toc]
+toc_title: 关于冬寂
+comments: true
+breadcrumb: false
+header: false
+---
+
+{% about %}
+
+<img src="https://s4.ax1x.com/2022/01/08/7iDIl4.jpg">
+
+**妄自尊大只不过是无知的假面具而已。**
+
+17岁的心理与神经疾病患者，癫狂和思想混乱到到无可救药之人，数年的玩网经历唯一教会我的就是在如今巨人的肩膀上皆需虚心求教。
+
+荒年曾是我的师傅与引路人，如今他已退隐，由我来接手他的部分互联网账号。
+
+{% navbar [QQ](http://wpa.qq.com/msgrd?v=3&uin=2601677867&site=qq&menu=yes) [GitHub](https://github.com/2601677867) [邮箱](mailto::2601677867@qq.com) [友链](/friends/) %}
+
+{% endabout %}
+
+# 个人爱好
+
+{% tabs active:2 align:center %}
+
+<!-- tab 喜欢的音乐 -->
+主听日&英系歌曲，喜欢PSY Trance，Bigroom，ItaloDance等类型电子舞曲与金属摇滚和流行歌曲。
+
+<!-- tab 番剧 -->
+
+推荐的番剧与番剧电影：
+
+| 名称 | 推荐原因 | 个人评分 |
+| --- | --- | --- |
+| 《Darling In The FARNXX》 | 乌托邦世界观与赞爆的画质与剧情 | 10/10 |
+| 《奇诺之旅》 | 影响我人生的番剧之一 | 9/10 |
+| 《堀与宮村》 | 强烈推荐的青梅竹马番 | 8/10 |
+| 《天气之子》 | 神作 | 9/10 |
+| 《你的名字》 | 神作 | 10/10 |
+
+<!-- tab 游戏 -->
+
+3A大作忠实粉丝
+
+FPS与射击题材游戏狂热爱好者
+
+PC&Oculus VR平台玩家(后续可能会玩Xbox与PS平台)
+
+{% link https://steamcommunity.com/id/bbbird5/ 一纸荒年Trace&nbsp;-&nbsp;Steam个人资料页面 %}
+
+我和游戏的故事：[游戏收藏](/collect/)
+
+{% endtabs %}
