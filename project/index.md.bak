@@ -41,7 +41,7 @@ title: 冬寂项目&进程安排总汇页面
 同样是本世代/旧时代主机&PC平台上的射击游戏爱好者？有强烈情怀或极佳的冷门游戏想被汉化？
 在时间线处于“空闲”时意味着我想做事但却无事可做，您可以与我联系一起探讨想被汉化的游戏。
 
-{% noteblock 接受符合以下条件的游戏 color:green codeblock:bool %}
+{% noteblock 接受符合以下条件的游戏 color:green %}
 
 - FPS或，TPS视角射击游戏，特殊视角射击游戏，横版射击游戏等
 
@@ -60,7 +60,7 @@ title: 冬寂项目&进程安排总汇页面
 {% endnoteblock %}
 
 
-{% noteblock 不接受符合以下条件的游戏 color:red codeblock:bool %}
+{% noteblock 不接受符合以下条件的游戏 color:red %}
 
 - 任何非带有射击元素类型的游戏(如任何RPG)
 
