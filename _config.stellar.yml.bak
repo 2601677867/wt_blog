@@ -1,0 +1,57 @@
+sidebar:
+  menu:
+    post: '[博客](/)'
+    wiki: '[项目](/project/)'
+    collect: '[游戏收藏](/collect/)'
+    about: '[关于](/about)'
+  # widgets:
+  #   default_layout: [welcome, recent]
+  
+  
+
+article:
+  # 分类颜色
+  category_color:
+    '其他': '#ff9800'
+    '作品发布': '#4caf50'
+    '笔记': '#4caf50'
+  share: [wechat, weibo, email, link]
+  related_posts:
+    enable: true
+
+comments:
+  service: beaudar
+  beaudar:
+    repo: 2601677867/wintermuted_comment
+
+footer:
+  social:
+    github:
+      icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/08a41b181ce68.svg"/>'
+      url: https://github.com/2601677867
+    music:
+      icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3845874.svg"/>'
+      url: https://open.spotify.com/user/2yv0jxwm66g7s7epatpx2g4r4?si=RRrEsLEPRq-cZ_CPGVdBZg&utm_source=copy-link
+    #unsplash:
+      #icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/3616429.svg"/>'
+      #url: https://unsplash.com/@xaoxuu
+    #comments:
+      #icon: '<img src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.3/social/942ebbf1a4b91.svg"/>'
+      #url: /about/#comments
+  sitemap:
+    '博客':
+      - '[近期](/)'
+      - '[分类](/blog/categories/)'
+      - '[归档](/blog/archives/)'
+    '项目':
+      - '[汉化作品](/wiki/tags/游戏汉化/)'
+      - '[开源工具](/wiki/tags/开源工具/)'
+    '友情链接':
+      - '[Remember 11解密篇](https://remember11.com)'
+    '更多':
+      - '[关于冬寂](/about/)'
+
+
+style:
+  codeblock:
+    scrollbar: 0px
