@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://s2.loli.net/2022/01/30/vzCad8Vt3KA4Dkh.png">
 <meta property="og:image" content="https://s2.loli.net/2022/01/30/Jlsu59UiPd3ZrBX.png">
 <meta property="article:published_time" content="2022-01-30T07:15:41.000Z">
-<meta property="article:modified_time" content="2022-01-30T13:28:19.897Z">
+<meta property="article:modified_time" content="2022-03-09T15:00:59.169Z">
 <meta property="article:author" content="WinterMuted 冬寂">
 <meta property="article:tag" content="ps">
 <meta property="article:tag" content="ps1">
@@ -74,7 +74,7 @@
 
 <div class="widgets">
 
-<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA"><span class="toc-text">导出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2"><span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A2%E9%92%88%E6%B3%95"><span class="toc-text">探针法</span></a></li></ol></li></ol></div></div></div>
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA"><span class="toc-text">导出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2"><span class="toc-text">转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A2%E9%92%88%E6%B3%95"><span class="toc-text">探针法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%83%E8%BD%A6%E4%BF%9D%E5%B8%85%E6%B3%95"><span class="toc-text">弃车保帅法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%BF%E7%A7%98%E6%B3%95"><span class="toc-text">便秘法</span></a></li></ol></div></div></div>
 
 
 </div>
@@ -97,8 +97,6 @@
 <h1 id="TIM文件"><a href="#TIM文件" class="headerlink" title="TIM文件"></a>TIM文件</h1><p>TIM文件是PlayStaion游戏场景的贴图/图片文件格式，你问我为什么叫TIM？我也不知道</p>
 <p>TIM文件的特色是由多个颜色表(CLUT)控制内容，比如说绿色颜色表显示1-6，蓝色颜色表可能显示11-15、或者两种颜色表显示同样的内容。</p>
 <p>但是颜色表控制内容是TIM文件独有的特性，最后一版支持直接编辑TIM的插件还是Photoshop 2.0 (1994年)版本。相信我，你不会想用Windows 3.1去处理字库图片的。</p>
-<p>所以对于多颜色表控制图片，我们只能将每个状态的图片分别导出，处理后再使用工具合并，有点类似于STR和XA。</p>
-<p>但这只限于一些什么字体等特殊贴图，对于一些常规单颜色表图片的话直接转成bmp拖进Photoshop里再转回来就行了！</p>
 <h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/m35/jpsxdec">jpsxdec</a></li>
 </ul>
@@ -140,21 +138,36 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">New TIM format &quot;320x240 8bpp xy(1, 1) WWidth:160 Len:76812 CLUT[256x1 xy(2, 2) Len:524]&quot; does not match existing TIM format &quot;320x240 8bpp xy(704, 256) WWidth:160 Len:76812 CLUT[256x1 xy(320, 507) Len:524]&quot;</span><br></pre></td></tr></table></figure>
 
 <p>这样我们就获得了原坐标xy(704，256)和xy(320，507)</p>
-<p>至于第二个坐标是什么我还没研究明白，但img2tim也提供了修改功能。</p>
 <p>重新生成TIM并插入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">img2tim -org 704 256 -plt 320 507 -o Yee.TIM test.png</span><br><span class="line">// 生成Yee.tim</span><br><span class="line">java -jar jpsxdex.jar -f Mygame.bin -x re.idx -i 163 -replacetim Yee.tim</span><br><span class="line">//替换tim文件</span><br></pre></td></tr></table></figure>
 
 <p>重新运行光盘试试，你会发现贴图已经被替换了。</p>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://s2.loli.net/2022/01/30/Jlsu59UiPd3ZrBX.png"/></div></div>
 
-<h1 id="非常规图片修改流程-多颜色表"><a href="#非常规图片修改流程-多颜色表" class="headerlink" title="非常规图片修改流程(多颜色表)"></a>非常规图片修改流程(多颜色表)</h1>
+<h1 id="非常规图片修改流程-多颜色表"><a href="#非常规图片修改流程-多颜色表" class="headerlink" title="非常规图片修改流程(多颜色表)"></a>非常规图片修改流程(多颜色表)</h1><h2 id="弃车保帅法"><a href="#弃车保帅法" class="headerlink" title="弃车保帅法"></a>弃车保帅法</h2><p>保留原始颜色表的情况下“完全”处理贴图文件，即使在2022年也没有任何工具可以做到这一点。</p>
+<p>但据我测试，在Photoshop中以13位颜色（因为tim单页颜色数最大不能超过14）的情况下导出为bmp后合成4bpp的TIM后，PlayStaion的GPU就会在无需颜色表的情况下正确识别颜色。</p>
+<p>但是修改后的贴图如何替换回原文件？因为jpsxdec有校验机制，所以只能用winhex或者其他十六进制编辑器工具进行暴力替换了。这样虽然有点繁琐，但还是可行的。如果你有一定的编程水平，你甚至可以写一个工具来自动化替换过程 <psw>毕竟手动换挺费眼睛的</psw></p>
+<p>需要注意的是，使用这种方法替换的贴图在被引用时，如果程序调用了未被修改的字符（比如说你在编辑的时候没有动日文字符）或者调用了不存在的颜色表数据（例如原版有三个颜色表编辑后只剩一个了），这样显示出来的文字颜色就会出现异常，而且这种异常是随机的：有时候是姨妈绿，有时候是渣男红。</p>
+<p>但字体还在，这也不是不能被接受的，毕竟汉化嘛。</p>
+<h2 id="便秘法"><a href="#便秘法" class="headerlink" title="便秘法"></a>便秘法</h2><p>很抱歉以这种方法命名，但是用这种方法编辑TIM字库的过程那真的是像便秘一样。</p>
+<p>天使汉化组曾制作过一款Tile编辑器叫Crystal Tile2<del>水晶瓷砖2(笑)</del>，编辑器原本为任系主机3DS/FC/GBA/NDS等主机打造，但因其工作原理也适用于任何平台<del>甚至PS3</del></p>
+<p>工具原生支持PS2/PSP平台使用的TIM2，所以也支持解析PSX所用的TIM。但使用此工具的替换法处理TIM会导致贴图损坏，所以你只能一个像素点一个像素点编辑。</p>
+<p>但好处是，使用ct2编辑并不会破坏颜色表，而且各个颜色表会同步修改。</p>
+<psw>知道我为啥叫他便秘法了吧</psw>
+
+
+<h1 id="那之前的汉化游戏是怎么搞定颜色表问题的"><a href="#那之前的汉化游戏是怎么搞定颜色表问题的" class="headerlink" title="那之前的汉化游戏是怎么搞定颜色表问题的"></a>那之前的汉化游戏是怎么搞定颜色表问题的</h1><p>问得好，颜色表在16进制层面是可以被更改的，而且有一篇详细的文章来讲解TIM文件结构。</p>
+<p>什么？你问有没有现成工具？对着16进制发呆去吧少年！</p>
+<p><a target="_blank" rel="noopener" href="http://www.romhacking.net/documents/31/">TIM Graphic Formats, By Klarth, Version 1.0</a></p>
+<p>或者等我哪天心血来潮研究明白tim后写个颜色表复制工具。</p>
+
 
 <div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
 </div></section><section id="share"><div class="header"><span>分享文章</span></div><div class="body"><div class="link"><input class="copy-area" readonly="true" id="copy-link" value="http://wintermuted.cn/ps1tim.html" /></div><div class="social-wrap dis-select"><a class="social share-item wechat" onclick="util.toggle(&quot;qrcode-wechat&quot)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/b32ef3da1162a.svg"/></a><a class="social share-item weibo" target="_blank" rel="external nofollow noopener noreferrer" href="https://service.weibo.com/share/share.php?url=http://wintermuted.cn/ps1tim.html&title=PS1游戏汉化研究——TIM图片文件 - 冬寂的日志薄&summary=也包括怎么从压缩文件内替换里面的TIM文件。"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/80c07e4dbb303.svg"/></a><a class="social share-item email" href="mailto:?subject=PS1游戏汉化研究——TIM图片文件 - 冬寂的日志薄&amp;body=http://wintermuted.cn/ps1tim.html"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/a1b00e20f425d.svg"/></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/social/8411ed322ced6.svg"/></a></div><div class="qrcode" id="qrcode-wechat" style="visibility:hidden;height:0"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://api.qrserver.com/v1/create-qr-code/?size=256x256&data=http://wintermuted.cn/ps1tim.html"/></div></div></section></div>
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/ps1iso.html">PS1游戏汉化研究——iso游戏光盘修改<span class="note">较早</span></a><div class="line"></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/ps1iso.html">PS1游戏汉化研究——iso游戏光盘修改<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/steamcmdplus.html">undefined<span class="note">较新</span></a></section></div>
 
 
 <div class="related-wrap reveal" id="related-posts">
